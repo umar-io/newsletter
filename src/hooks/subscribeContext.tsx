@@ -1,4 +1,10 @@
-import { useContext, createContext, useState, ReactNode, useEffect } from "react";
+import {
+  useContext,
+  createContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 
 // Define the type for the context value
 interface SubscribeContextType {
@@ -16,7 +22,8 @@ const defaultContextValue: SubscribeContextType = {
   setFormData: () => {}, // empty function as default
 };
 
-const SubscriberContext = createContext<SubscribeContextType>(defaultContextValue);
+const SubscriberContext =
+  createContext<SubscribeContextType>(defaultContextValue);
 
 interface SubscribeProviderProps {
   children: ReactNode;
@@ -24,7 +31,9 @@ interface SubscribeProviderProps {
 
 const SubscribeProvider = ({ children }: SubscribeProviderProps) => {
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
-  const [formData, setFormData] = useState<{ email: string }>({ email: "" });
+  const [formData, setFormData] = useState<{ email: string }>({
+    email: localStorage.getItem("subscriber_email") || "",
+  });
 
   // Save the email to localStorage when formData.email changes
   useEffect(() => {

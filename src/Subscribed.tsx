@@ -1,5 +1,5 @@
 type SubscribeProps = {
-  email: string;
+  email: string ;
 };
 import { useSubscribe } from "./hooks/subscribeContext";
 import successMark from "./assets/images/icon-success.svg";
