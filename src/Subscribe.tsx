@@ -6,7 +6,7 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { useSubscribe } from "./hooks/subscribeContext";
 
 const Subscribe = () => {
-  const { setIsSubscribed, isSubscribed } = useSubscribe();
+  const { setIsSubscribed, isSubscribed , setFormData , formData} = useSubscribe();
   const [screenWidth, setScreenWidth] = useState<number>(window.outerWidth);
   useEffect(() => {
     const handleResize = () => {
@@ -28,10 +28,7 @@ const Subscribe = () => {
     "And Much More",
   ];
 
-  const [formData, setFormData] = useState<{ email: string }>({
-    email: "",
-  });
-
+  
   const [emailError, setEmailError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -64,7 +61,7 @@ const Subscribe = () => {
   return (
     <section className="flex lg:flex-row flex-col-reverse justify-evenly text-white bg-white lg:h-[500px] rounded-md">
       <article className="lg:w-1/2 w-full flex-col flex gap-4 lg:px-8 lg:py-4 py-8 px-4">
-        <h3 className="text-black text-[40px]">Stay Updated</h3>
+        <h3 className="text-black text-[40px] font-[700]">Stay Updated!</h3>
         <p className="text-[16px] text-black">
           Join 60,000+ product managers receiving monthly updates on:
         </p>
